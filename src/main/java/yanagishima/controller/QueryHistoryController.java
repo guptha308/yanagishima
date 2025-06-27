@@ -33,7 +33,7 @@ public class QueryHistoryController {
                                  @RequestParam(required = false) String queryids) {
     Map<String, Object> responseBody = new HashMap<>();
     try {
-      String[] queryIds = queryids.split(","); // TODO: Fix NPE
+      String[] queryIds = (queryids == null || queryids.isEmpty()) ? new String[0] : queryids.split(",");
       responseBody.put("headers", Arrays
           .asList("Id", "Query", "Time", "rawDataSize", "engine", "finishedTime", "linenumber", "status"));
       responseBody.put("results", getHistories(datasource, queryIds));
@@ -54,6 +54,9 @@ public class QueryHistoryController {
   }
 
   private List<Query> getQueries(String datasource, String[] queryIds) {
+    if (queryIds.length == 0) {
+      return List.of();
+    }
     return queryService.getAll(datasource, Lists.newArrayList(queryIds));
   }
 
