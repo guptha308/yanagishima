@@ -89,7 +89,7 @@ task copy(dependsOn: [
 
 distributions {
   main {
-    baseName = 'yanagishima'
+    distributionBaseName = 'yanagishima'
     contents {
       from { 'build/package' }
     }
