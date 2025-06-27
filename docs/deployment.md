@@ -30,3 +30,32 @@ sql.query.engines: presto
 auth.your-presto: true
 ```
 
+# Multiple user sessions via reverse proxy
+
+HTTP Basic authentication is handled by browsers and the same credential is
+shared across all tabs.  If you need to connect to yanagishima with different
+usernames at the same time, configure your proxy (for example Nginx) to pass a
+per-session cookie or header that represents the authenticated user.
+
+Below is a simplified Nginx snippet which forwards a cookie value as a custom
+header to yanagishima:
+
+```nginx
+location / {
+    auth_request /auth; # your authentication endpoint
+    proxy_set_header X-Auth-User $cookie_session_user;
+    proxy_pass http://localhost:8080;
+}
+```
+
+Then enable header based auditing in `application.yml` so yanagishima picks up
+the forwarded username:
+
+```yaml
+audit.http.header.name: X-Auth-User
+use.audit.http.header.name: true
+```
+
+With this approach, each browser tab can use a different cookie and therefore a
+different username.
+
