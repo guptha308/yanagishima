@@ -131,20 +131,20 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.33'
 
     // Logger
-    implementation 'org.slf4j:slf4j-api:1.7.10'
-    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'org.slf4j:slf4j-api:2.0.13'
+    implementation 'ch.qos.logback:logback-classic:1.4.14'
 
     // Trino
     implementation 'io.trino:trino-client:453'
     implementation 'io.trino:trino-parser:453'
-    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
 
     // Fluentd
     implementation 'org.komamitsu:fluency:1.7.0'
 
     // Utility
     implementation 'org.apache.commons:commons-csv:1.5'
-    implementation 'com.google.guava:guava:30.1-jre'
+    implementation 'com.google.guava:guava:33.1.0-jre'
 
     // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.8'
