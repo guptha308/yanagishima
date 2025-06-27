@@ -46,6 +46,7 @@
           <a href="#auth" class="text-white mr-2" data-toggle="modal" data-target="#auth">
             <i v-if="authUser" class="fas fa-lg fa-user"></i>
             <i v-else class="fas fa-lg fa-user-times"></i>
+            <span v-if="authUser" class="small ml-1">{{ authUser }}</span>
           </a>
         </template>
         <div class="dropdown d-inline-block mr-2">
