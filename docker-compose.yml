@@ -1,0 +1,13 @@
+version: '3'
+services:
+  trino:
+    image: 'trinodb/trino:352'
+    ports:
+      - '18080:8080'
+
+  yanagishima:
+    build: .
+    ports:
+      - '8080:8080'
+    depends_on:
+      - trino

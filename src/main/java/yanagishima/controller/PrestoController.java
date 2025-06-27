@@ -92,8 +92,7 @@ public class PrestoController {
           }
           responseBody.put("lineNumber", Integer.toString(prestoQueryResult.getLineNumber()));
           responseBody.put("rawDataSize", prestoQueryResult.getRawDataSize().toString());
-          Optional<String> warningMessageOptinal = Optional.ofNullable(prestoQueryResult.getWarningMessage());
-          warningMessageOptinal.ifPresent(warningMessage -> {
+          prestoQueryResult.getWarningMessage().ifPresent(warningMessage -> {
             responseBody.put("warn", warningMessage);
           });
         }

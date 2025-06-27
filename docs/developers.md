@@ -3,7 +3,7 @@
 ## Backend
 
 ### Framework
-* Java 11
+* Java 17
 * Lombock
 
 ### Build
@@ -52,6 +52,7 @@
 
 - [Xcode](https://developer.apple.com/jp/xcode/)
 - [Node.js](https://nodejs.org/ja/)
+  - Version 18 or later is required to build the UI
 
 #### Install dependencies
 

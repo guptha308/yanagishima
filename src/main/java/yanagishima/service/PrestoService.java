@@ -277,9 +277,9 @@ public class PrestoService {
             if (client.getQuery().toLowerCase().startsWith("show") || rows.size() < maxRowLimit) {
               rows.add(row);
             } else {
-              queryResult.setWarningMessage(
+              queryResult.setWarningMessage(Optional.of(
                   format("now fetch size is %d. This is more than %d. So, fetch operation stopped.",
-                         rows.size(), maxRowLimit));
+                         rows.size(), maxRowLimit)));
             }
             rowNumber++;
           }

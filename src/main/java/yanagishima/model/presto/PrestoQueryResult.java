@@ -1,6 +1,7 @@
 package yanagishima.model.presto;
 
 import java.util.List;
+import java.util.Optional;
 
 import io.airlift.units.DataSize;
 import lombok.Getter;
@@ -12,7 +13,7 @@ public class PrestoQueryResult {
   private String updateType;
   private List<String> columns;
   private List<List<String>> records;
-  private String warningMessage;
+  private Optional<String> warningMessage = Optional.empty();
   private String queryId;
   private int lineNumber;
   private DataSize rawDataSize;
