@@ -46,7 +46,7 @@ task createDirs() {
 
 task buildWeb(type:Exec) {
     workingDir './web'
-    commandLine './deploy.sh'
+    commandLine 'bash', '-c', 'npm install && npm run build'
     standardOutput = new ByteArrayOutputStream()
     ext.output = {
         return standardOutput.toString()
